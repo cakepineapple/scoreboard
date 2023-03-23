@@ -17,7 +17,7 @@ const Scoreboard = ({ sortedData, setData }) => {
       {sortedData.slice(0, 8).map((person, index) => {
         return (
           <React.Fragment key={person.id}>
-            <Flex margin="10px" align="center">
+            <Flex margin="8px" align="center">
               <Circle
                 bg={
                   index === 0

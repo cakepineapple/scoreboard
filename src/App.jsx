@@ -6,13 +6,13 @@ import {
   CardBody,
   Box,
   Flex,
+  Image,
+  CardFooter,
 } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import Scoreboard from "./Scoreboard";
 import Form from "./Form";
-
-const bgImgLink =
-  "https://th.bing.com/th/id/R.a0425b4d3a77461b74ea604295cedb65?rik=AJIKmp7wWu%2fTGQ&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-8%2fFibonacci-Sequence-High-Definition-Wallpaper-24778.png&ehk=1vUSctXl7NkS24GTJ5cqhWRyB8VZh96bGi5CwJDR3VA%3d&risl=&pid=ImgRaw&r=0";
+import config from "./config";
 
 export const App = () => {
   const [data, setData] = useState(
@@ -30,7 +30,7 @@ export const App = () => {
   }, [data]);
   return (
     <Box
-      bgImage={bgImgLink}
+      bgImage={config.bg}
       bgRepeat="no-repeat"
       bgSize="cover"
       m="0"
@@ -42,7 +42,7 @@ export const App = () => {
         <Card minH="90vh">
           <CardHeader onClick={() => setView(!view)}>
             <Heading textAlign="center" _hover={{ cursor: "pointer" }}>
-              Scoreboard 🏆
+              {config.heading}
             </Heading>
           </CardHeader>
           <CardBody>
@@ -52,6 +52,10 @@ export const App = () => {
               <Form setData={setData} data={data} />
             )}
           </CardBody>
+          <CardFooter as={Flex} justifyContent="center" gap="30px" mt="0">
+            <Image src="./images/moramaths.png" height="40px" />
+            <Image src="./images/mday.png" height="40px" />
+          </CardFooter>
         </Card>
       </Container>
     </Box>
